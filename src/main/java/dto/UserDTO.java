@@ -1,12 +1,14 @@
 package dto;
 
+import service.types.UserType;
+
 /**
  * @author Dilini Peiris on 7/1/2019
  */
-public class UserDTO {
+public class UserDTO extends SuperDTO{
     private String userName;
     private String  password;
-    private String type;
+    private UserType type;
     private int id;
     private String contactNo;
     private String name;
@@ -14,7 +16,7 @@ public class UserDTO {
     public UserDTO() {
     }
 
-    public UserDTO(String userName, String password, String type, int id, String contactNo, String name) {
+    public UserDTO(String userName, String password, UserType type, int id, String contactNo, String name) {
         this.userName = userName;
         this.password = password;
         this.type = type;
@@ -39,11 +41,11 @@ public class UserDTO {
         this.password = password;
     }
 
-    public String getType() {
+    public UserType getType() {
         return type;
     }
 
-    public void setType(String type) {
+    public void setType(UserType type) {
         this.type = type;
     }
 

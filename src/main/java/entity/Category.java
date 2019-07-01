@@ -9,7 +9,7 @@ package entity;
  *
  * @author DELL
  */
-public class Category {
+public class Category extends SuperEntity{
         private int id;
         private String type;
         private String Subject;

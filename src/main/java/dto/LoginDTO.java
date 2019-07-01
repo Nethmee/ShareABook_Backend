@@ -9,7 +9,7 @@ package dto;
  *
  * @author DELL
  */
-public class LoginDTO {
+public class LoginDTO extends SuperDTO{
     private String userName;
     private String  password;
     private String type;

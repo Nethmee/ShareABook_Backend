@@ -9,7 +9,7 @@ package entity;
  *
  * @author DELL
  */
-public class BookShop {
+public class BookShop extends SuperEntity{
     private int registerId;
     private String name;
     private String location;

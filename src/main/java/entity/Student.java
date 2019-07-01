@@ -9,7 +9,7 @@ package entity;
  *
  * @author DELL
  */
-public class Student {
+public class Student extends SuperEntity{
 
     private int studentId;
     private String name;
