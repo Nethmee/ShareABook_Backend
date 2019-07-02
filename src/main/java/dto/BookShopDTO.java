@@ -9,7 +9,7 @@ package dto;
  *
  * @author DELL
  */
-public class BookShopDTO {
+public class BookShopDTO extends SuperDTO{
     private int registerId;
     private String name;
     private String location;

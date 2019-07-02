@@ -5,20 +5,22 @@
  */
 package dto;
 
+import service.types.StudyMaterialType;
+
 /**
  *
  * @author DELL
  */
-public class StudyMaterialDTO {
+public class StudyMaterialDTO extends SuperDTO{
     private int materialID;
-    private  int ISBMNumber;
+    private  String ISBMNumber;
     private int numberOFCopies;
-    private String type;
+    private StudyMaterialType type;
     private String title;
     private String author;
     private float price;
     
-    public StudyMaterialDTO(int materialID, int ISBMNumber, int numberOFCopies, String type, String title, String author) {
+    public StudyMaterialDTO(int materialID, String ISBMNumber, int numberOFCopies, StudyMaterialType type, String title, String author) {
         this.materialID = materialID;
         this.ISBMNumber = ISBMNumber;
         this.numberOFCopies = numberOFCopies;
@@ -31,7 +33,7 @@ public class StudyMaterialDTO {
         return materialID;
     }
 
-    public int getISBMNumber() {
+    public String getISBMNumber() {
         return ISBMNumber;
     }
 
@@ -39,7 +41,7 @@ public class StudyMaterialDTO {
         return numberOFCopies;
     }
 
-    public String getType() {
+    public StudyMaterialType getType() {
         return type;
     }
 
@@ -55,7 +57,7 @@ public class StudyMaterialDTO {
         this.materialID = materialID;
     }
 
-    public void setISBMNumber(int ISBMNumber) {
+    public void setISBMNumber(String ISBMNumber) {
         this.ISBMNumber = ISBMNumber;
     }
 
@@ -63,7 +65,7 @@ public class StudyMaterialDTO {
         this.numberOFCopies = numberOFCopies;
     }
 
-    public void setType(String type) {
+    public void setType(StudyMaterialType type) {
         this.type = type;
     }
 

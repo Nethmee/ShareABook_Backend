@@ -8,7 +8,7 @@ package dto;
 /**
  * @author DELL
  */
-public class AdminDTO {
+public class AdminDTO extends SuperDTO{
     private int adminId;
     private String name;
     private int contactNum;

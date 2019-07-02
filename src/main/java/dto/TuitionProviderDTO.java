@@ -9,7 +9,7 @@ package dto;
  *
  * @author DELL
  */
-public class TuitionProviderDTO {
+public class TuitionProviderDTO extends SuperDTO{
     private int id;
     private String NIC;
     private int contactNumber;

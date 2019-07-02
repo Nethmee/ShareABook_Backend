@@ -5,17 +5,19 @@
  */
 package dto;
 
+import service.types.ExamType;
+
 /**
  *
  * @author DELL
  */
-public class CategoryDTO {
+public class CategoryDTO extends SuperDTO{
         private int id;
         private String type;
         private String Subject;
-        private String examType;
+        private ExamType examType;
 
-    public CategoryDTO(int id, String type, String Subject, String examType) {
+    public CategoryDTO(int id, String type, String Subject, ExamType examType) {
         this.id = id;
         this.type = type;
         this.Subject = Subject;
@@ -34,7 +36,7 @@ public class CategoryDTO {
         return Subject;
     }
 
-    public String getExamType() {
+    public ExamType getExamType() {
         return examType;
     }
 
@@ -50,7 +52,7 @@ public class CategoryDTO {
         this.Subject = Subject;
     }
 
-    public void setExamType(String examType) {
+    public void setExamType(ExamType examType) {
         this.examType = examType;
     }
         

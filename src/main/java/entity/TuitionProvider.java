@@ -9,7 +9,7 @@ package entity;
  *
  * @author DELL
  */
-public class TuitionProvider {
+public class TuitionProvider extends SuperEntity{
     private int id;
     private String NIC;
     private int contactNumber;

@@ -9,7 +9,7 @@ package entity;
  *
  * @author DELL
  */
-public class Login {
+public class Login extends SuperEntity{
     private String userName;
     private String  password;
     private String type;

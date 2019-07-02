@@ -9,16 +9,16 @@ package entity;
  *
  * @author DELL
  */
-public class StudyMaterial {
+public class StudyMaterial extends SuperEntity{
     private int materialID;
-    private  int ISBMNumber;
+    private  String ISBMNumber;
     private int numberOFCopies;
     private String type;
     private String title;
     private String author;
     private float price;
     
-    public StudyMaterial(int materialID, int ISBMNumber, int numberOFCopies, String type, String title, String author) {
+    public StudyMaterial(int materialID, String ISBMNumber, int numberOFCopies, String type, String title, String author) {
         this.materialID = materialID;
         this.ISBMNumber = ISBMNumber;
         this.numberOFCopies = numberOFCopies;
@@ -31,7 +31,7 @@ public class StudyMaterial {
         return materialID;
     }
 
-    public int getISBMNumber() {
+    public String getISBMNumber() {
         return ISBMNumber;
     }
 
@@ -55,7 +55,7 @@ public class StudyMaterial {
         this.materialID = materialID;
     }
 
-    public void setISBMNumber(int ISBMNumber) {
+    public void setISBMNumber(String ISBMNumber) {
         this.ISBMNumber = ISBMNumber;
     }
 

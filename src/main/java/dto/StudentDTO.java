@@ -9,7 +9,7 @@ package dto;
  *
  * @author DELL
  */
-public class StudentDTO {
+public class StudentDTO extends SuperDTO{
     
     private int studentId;
     private String name;

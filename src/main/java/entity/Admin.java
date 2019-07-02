@@ -8,7 +8,7 @@ package entity;
 /**
  * @author DELL
  */
-public class Admin {
+public class Admin extends SuperEntity{
     private int adminId;
     private String name;
     private int contactNum;
