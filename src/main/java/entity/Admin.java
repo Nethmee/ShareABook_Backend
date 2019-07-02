@@ -5,13 +5,30 @@
  */
 package entity;
 
+import javax.persistence.*;
+import java.util.List;
+
 /**
  * @author DELL
  */
-public class Admin extends SuperEntity{
+
+@Entity
+@Table(name = "admin")
+public class Admin extends SuperEntity {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private int adminId;
+
+    @Column(name = "name")
     private String name;
+
+    @Column(name = "contact")
     private int contactNum;
+
+    @OneToMany(mappedBy = "admin")
+    private List<BookShop> registeredBookShops;
 
     public Admin(int adminId, String name, int contactNum) {
         this.adminId = adminId;

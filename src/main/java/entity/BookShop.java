@@ -5,28 +5,52 @@
  */
 package entity;
 
+import javax.persistence.*;
+import java.util.List;
+
 /**
  *
  * @author DELL
  */
+
+@Table(name = "bookshop")
+@Entity
 public class BookShop extends SuperEntity{
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private int registerId;
+    @Column(name = "name")
     private String name;
+    @Column(name = "location")
     private String location;
+    @Column(name = "contact")
     private String contactNo;
+    @Column(name = "manager_name")
     private String nameOfManager;
+    @Column(name = "manager_nic")
     private String NICofManager;
-    private String conectedBranchURL;
+    @Column(name = "webpage")
+    private String connectedBranchURL;
+    @Column(name = "type")
     private String bookshopType;
 
-    public BookShop(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String conectedBranchURL, String bookshopType) {
+    @OneToMany(mappedBy = "primaryKey.bookShop")
+    List<BookShopUpload> bookShopUploads;
+
+    @ManyToOne
+    @JoinColumn(name = "registered_by")
+    private Admin admin;
+
+    public BookShop(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String connectedBranchURL, String bookshopType) {
         this.registerId = registerId;
         this.name = name;
         this.location = location;
         this.contactNo = contactNo;
         this.nameOfManager = nameOfManager;
         this.NICofManager = NICofManager;
-        this.conectedBranchURL = conectedBranchURL;
+        this.connectedBranchURL = connectedBranchURL;
         this.bookshopType = bookshopType;
     }
 
@@ -54,8 +78,8 @@ public class BookShop extends SuperEntity{
         this.NICofManager = NICofManager;
     }
 
-    public void setConectedBranchURL(String conectedBranchURL) {
-        this.conectedBranchURL = conectedBranchURL;
+    public void setConnectedBranchURL(String connectedBranchURL) {
+        this.connectedBranchURL = connectedBranchURL;
     }
 
     public void setBookshopType(String bookshopType) {
@@ -86,8 +110,8 @@ public class BookShop extends SuperEntity{
         return NICofManager;
     }
 
-    public String getConectedBranchURL() {
-        return conectedBranchURL;
+    public String getConnectedBranchURL() {
+        return connectedBranchURL;
     }
 
     public String getBookshopType() {

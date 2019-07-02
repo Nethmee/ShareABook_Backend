@@ -5,33 +5,44 @@
  */
 package entity;
 
+import javax.persistence.*;
+import java.util.List;
+
 /**
  *
  * @author DELL
  */
+@Entity
+@Table(name = "tuition_provider")
 public class TuitionProvider extends SuperEntity{
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id", nullable = false)
     private int id;
+    @Column(name = "nic")
     private String NIC;
-    private int contactNumber;
-    private String skilledSubject;
-    private String Address;
-    private String payment;
+    @Column(name = "contact")
+    private String contactNumber;
+    @Column(name = "address")
+    private String address;
 
-    public TuitionProvider(int id, String NIC, int contactNumber, String skilledSubject, String address, String payment) {
+    @OneToMany(mappedBy = "primaryKey.tuitionProvider")
+    private List<TuitionProviderUpload> tuitionProviderUploads;
+
+
+    public TuitionProvider(int id, String NIC, String contactNumber, String address) {
         this.id = id;
         this.NIC = NIC;
         this.contactNumber = contactNumber;
-        this.skilledSubject = skilledSubject;
-        Address = address;
-        this.payment = payment;
+        this.address = address;
+//        this.payment = payment;
     }
 
-    public TuitionProvider(String NIC, int contactNumber, String skilledSubject, String Address, String payment) {
+    public TuitionProvider(String NIC, String contactNumber, String Address) {
         this.NIC = NIC;
         this.contactNumber = contactNumber;
-        this.skilledSubject = skilledSubject;
-        this.Address = Address;
-        this.payment = payment;
+        this.address = Address;
+//        this.payment = payment;
     }
 
     public int getId() {
@@ -46,44 +57,40 @@ public class TuitionProvider extends SuperEntity{
         this.NIC = NIC;
     }
 
-    public void setContactNumber(int contactNumber) {
+    public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
-    public void setSkilledSubject(String skilledSubject) {
-        this.skilledSubject = skilledSubject;
-    }
-
     public void setAddress(String Address) {
-        this.Address = Address;
+        this.address = Address;
     }
 
-    public void setPayment(String payment) {
-        this.payment = payment;
-    }
+//    public void setPayment(String payment) {
+//        this.payment = payment;
+//    }
 
     public String getNIC() {
         return NIC;
     }
 
-    public int getContactNumber() {
+    public String getContactNumber() {
         return contactNumber;
     }
 
-    public String getSkilledSubject() {
-        return skilledSubject;
-    }
-
     public String getAddress() {
-        return Address;
+        return address;
     }
 
-    public String getPayment() {
-        return payment;
+//    public String getPayment() {
+//        return payment;
+//    }
+
+
+    public List<TuitionProviderUpload> getTuitionProviderUploads() {
+        return tuitionProviderUploads;
     }
-    
 
-
-    
-
+    public void setTuitionProviderUploads(List<TuitionProviderUpload> tuitionProviderUploads) {
+        this.tuitionProviderUploads = tuitionProviderUploads;
+    }
 }

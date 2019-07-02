@@ -5,6 +5,8 @@
  */
 package dto;
 
+import service.types.BookShopType;
+
 /**
  *
  * @author DELL
@@ -17,9 +19,9 @@ public class BookShopDTO extends SuperDTO{
     private String nameOfManager;
     private String NICofManager;
     private String conectedBranchURL;
-    private String packageName;
+    private BookShopType bookShopType;
 
-    public BookShopDTO(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String conectedBranchURL, String packageName) {
+    public BookShopDTO(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String conectedBranchURL, BookShopType bookShopType) {
         this.registerId = registerId;
         this.name = name;
         this.location = location;
@@ -27,7 +29,7 @@ public class BookShopDTO extends SuperDTO{
         this.nameOfManager = nameOfManager;
         this.NICofManager = NICofManager;
         this.conectedBranchURL = conectedBranchURL;
-        this.packageName = packageName;
+        this.bookShopType = bookShopType;
     }
 
     public void setRegisterId(int registerId) {
@@ -58,8 +60,8 @@ public class BookShopDTO extends SuperDTO{
         this.conectedBranchURL = conectedBranchURL;
     }
 
-    public void setPackageName(String packageName) {
-        this.packageName = packageName;
+    public void setBookShopType(BookShopType bookShopType) {
+        this.bookShopType = bookShopType;
     }
 
     public int getRegisterId() {
@@ -90,8 +92,8 @@ public class BookShopDTO extends SuperDTO{
         return conectedBranchURL;
     }
 
-    public String getPackageName() {
-        return packageName;
+    public BookShopType getBookShopType() {
+        return bookShopType;
     }
     
 }
