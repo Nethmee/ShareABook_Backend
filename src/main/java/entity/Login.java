@@ -5,21 +5,34 @@
  */
 package entity;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
 /**
- *
  * @author DELL
  */
-public class Login extends SuperEntity{
+@Entity
+@Table(name = "login")
+public class Login extends SuperEntity {
+
+    @Id
+    @Column(name = "username")
     private String userName;
-    private String  password;
+    @Column(name = "password")
+    private String password;
+    @Column(name = "user_type")
     private String type;
+    @Column(name = "user_id")
+    private int id;
 
     public Login(String userName, String password, String type) {
         this.userName = userName;
         this.password = password;
         this.type = type;
     }
-    
+
 
     public void setUserName(String userName) {
         this.userName = userName;
@@ -43,5 +56,20 @@ public class Login extends SuperEntity{
 
     public String getType() {
         return type;
+    }
+
+    public Login(String userName, String password, String type, int id) {
+        this.userName = userName;
+        this.password = password;
+        this.type = type;
+        this.id = id;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
     }
 }

@@ -7,7 +7,6 @@ import service.types.UserType;
  */
 public class UserDTO extends SuperDTO{
     private String userName;
-    private String  password;
     private UserType type;
     private int id;
     private String contactNo;
@@ -16,9 +15,8 @@ public class UserDTO extends SuperDTO{
     public UserDTO() {
     }
 
-    public UserDTO(String userName, String password, UserType type, int id, String contactNo, String name) {
+    public UserDTO(String userName, UserType type, int id, String contactNo, String name) {
         this.userName = userName;
-        this.password = password;
         this.type = type;
         this.id = id;
         this.contactNo = contactNo;
@@ -31,14 +29,6 @@ public class UserDTO extends SuperDTO{
 
     public void setUserName(String userName) {
         this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
     }
 
     public UserType getType() {

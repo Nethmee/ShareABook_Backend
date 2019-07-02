@@ -1,4 +1,4 @@
-package service;
+package service.custom;
 
 import dto.LoginDTO;
 import dto.UserDTO;

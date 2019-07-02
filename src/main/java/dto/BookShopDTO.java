@@ -5,6 +5,8 @@
  */
 package dto;
 
+import service.types.BookShopType;
+
 /**
  *
  * @author DELL
@@ -16,18 +18,21 @@ public class BookShopDTO extends SuperDTO{
     private String contactNo;
     private String nameOfManager;
     private String NICofManager;
-    private String conectedBranchURL;
-    private String packageName;
+    private String connectedBranchURL;
+    private BookShopType bookShopType;
 
-    public BookShopDTO(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String conectedBranchURL, String packageName) {
+    public BookShopDTO(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String connectedBranchURL, BookShopType bookShopType) {
         this.registerId = registerId;
         this.name = name;
         this.location = location;
         this.contactNo = contactNo;
         this.nameOfManager = nameOfManager;
         this.NICofManager = NICofManager;
-        this.conectedBranchURL = conectedBranchURL;
-        this.packageName = packageName;
+        this.connectedBranchURL = connectedBranchURL;
+        this.bookShopType = bookShopType;
+    }
+
+    public BookShopDTO() {
     }
 
     public void setRegisterId(int registerId) {
@@ -54,12 +59,12 @@ public class BookShopDTO extends SuperDTO{
         this.NICofManager = NICofManager;
     }
 
-    public void setConectedBranchURL(String conectedBranchURL) {
-        this.conectedBranchURL = conectedBranchURL;
+    public String getConnectedBranchURL() {
+        return connectedBranchURL;
     }
 
-    public void setPackageName(String packageName) {
-        this.packageName = packageName;
+    public void setBookShopType(BookShopType bookShopType) {
+        this.bookShopType = bookShopType;
     }
 
     public int getRegisterId() {
@@ -86,12 +91,12 @@ public class BookShopDTO extends SuperDTO{
         return NICofManager;
     }
 
-    public String getConectedBranchURL() {
-        return conectedBranchURL;
+    public void setConnectedBranchURL(String connectedBranchURL) {
+        this.connectedBranchURL = connectedBranchURL;
     }
 
-    public String getPackageName() {
-        return packageName;
+    public BookShopType getBookShopType() {
+        return bookShopType;
     }
     
 }

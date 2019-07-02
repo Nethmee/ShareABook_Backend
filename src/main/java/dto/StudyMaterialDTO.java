@@ -13,28 +13,38 @@ import service.types.StudyMaterialType;
  */
 public class StudyMaterialDTO extends SuperDTO{
     private int materialID;
-    private  String ISBMNumber;
+    private String isbnNumber;
     private int numberOFCopies;
     private StudyMaterialType type;
     private String title;
     private String author;
     private float price;
-    
-    public StudyMaterialDTO(int materialID, String ISBMNumber, int numberOFCopies, StudyMaterialType type, String title, String author) {
+
+    public StudyMaterialDTO(int materialID, String isbnNumber, int numberOFCopies, StudyMaterialType type, String title, String author) {
         this.materialID = materialID;
-        this.ISBMNumber = ISBMNumber;
+        this.isbnNumber = isbnNumber;
         this.numberOFCopies = numberOFCopies;
         this.type = type;
         this.title = title;
         this.author = author;
     }
 
+    public StudyMaterialDTO(int materialID, String isbnNumber, int numberOFCopies, StudyMaterialType type, String title, String author, float price) {
+        this.materialID = materialID;
+        this.isbnNumber = isbnNumber;
+        this.numberOFCopies = numberOFCopies;
+        this.type = type;
+        this.title = title;
+        this.author = author;
+        this.price = price;
+    }
+
     public int getMaterialID() {
         return materialID;
     }
 
-    public String getISBMNumber() {
-        return ISBMNumber;
+    public String getIsbnNumber() {
+        return isbnNumber;
     }
 
     public int getNumberOFCopies() {
@@ -57,8 +67,8 @@ public class StudyMaterialDTO extends SuperDTO{
         this.materialID = materialID;
     }
 
-    public void setISBMNumber(String ISBMNumber) {
-        this.ISBMNumber = ISBMNumber;
+    public void setIsbnNumber(String isbnNumber) {
+        this.isbnNumber = isbnNumber;
     }
 
     public void setNumberOFCopies(int numberOFCopies) {
@@ -76,6 +86,12 @@ public class StudyMaterialDTO extends SuperDTO{
     public void setAuthor(String author) {
         this.author = author;
     }
-   
-    
+
+    public float getPrice() {
+        return price;
+    }
+
+    public void setPrice(float price) {
+        this.price = price;
+    }
 }

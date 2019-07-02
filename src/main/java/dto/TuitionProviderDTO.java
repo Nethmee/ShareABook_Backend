@@ -12,23 +12,30 @@ package dto;
 public class TuitionProviderDTO extends SuperDTO{
     private int id;
     private String NIC;
-    private int contactNumber;
+    private String contactNumber;
     private String Address;
-    private String payment;
+//    private String payment;
 
-    public TuitionProviderDTO(int id, String NIC, int contactNumber, String address, String payment) {
+    public TuitionProviderDTO(int id, String NIC, String contactNumber, String address, String payment) {
         this.id = id;
         this.NIC = NIC;
         this.contactNumber = contactNumber;
         Address = address;
-        this.payment = payment;
+//        this.payment = payment;
     }
 
-    public TuitionProviderDTO(String NIC, int contactNumber, String Address, String payment) {
+    public TuitionProviderDTO(String NIC, String contactNumber, String Address, String payment) {
         this.NIC = NIC;
         this.contactNumber = contactNumber;
         this.Address = Address;
-        this.payment = payment;
+//        this.payment = payment;
+    }
+
+    public TuitionProviderDTO(int id, String NIC, String contactNumber, String address) {
+        this.id = id;
+        this.NIC = NIC;
+        this.contactNumber = contactNumber;
+        Address = address;
     }
 
     public int getId() {
@@ -43,33 +50,33 @@ public class TuitionProviderDTO extends SuperDTO{
         this.NIC = NIC;
     }
 
-    public void setContactNumber(int contactNumber) {
-        this.contactNumber = contactNumber;
+    public String getContactNumber() {
+        return contactNumber;
     }
 
     public void setAddress(String Address) {
         this.Address = Address;
     }
 
-    public void setPayment(String payment) {
-        this.payment = payment;
-    }
+//    public void setPayment(String payment) {
+//        this.payment = payment;
+//    }
 
     public String getNIC() {
         return NIC;
     }
 
-    public int getContactNumber() {
-        return contactNumber;
+    public void setContactNumber(String contactNumber) {
+        this.contactNumber = contactNumber;
     }
 
     public String getAddress() {
         return Address;
     }
 
-    public String getPayment() {
-        return payment;
-    }
+//    public String getPayment() {
+//        return payment;
+//    }
     
 
 

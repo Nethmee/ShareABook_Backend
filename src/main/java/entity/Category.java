@@ -5,15 +5,28 @@
  */
 package entity;
 
+import javax.persistence.*;
+import java.util.List;
+
 /**
- *
  * @author DELL
  */
-public class Category extends SuperEntity{
-        private int id;
-        private String type;
-        private String Subject;
-        private String examType;
+@Table(name = "category")
+@Entity
+public class Category extends SuperEntity {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
+    private int id;
+    @Column(name = "type")
+    private String type;
+    @Column(name = "subject")
+    private String Subject;
+    @Column(name = "exam_type")
+    private String examType;
+
+    @OneToMany(mappedBy = "category")
+    List<StudyMaterial> studyMaterials;
 
     public Category(int id, String type, String Subject, String examType) {
         this.id = id;
@@ -53,5 +66,5 @@ public class Category extends SuperEntity{
     public void setExamType(String examType) {
         this.examType = examType;
     }
-        
+
 }

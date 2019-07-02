@@ -3,6 +3,7 @@ package service.util;
 import dto.*;
 import entity.*;
 import org.springframework.stereotype.Component;
+import service.types.BookShopType;
 import service.types.ExamType;
 import service.types.StudyMaterialType;
 
@@ -19,30 +20,30 @@ public class DtoConverter {
     public SuperDTO convertToDTO(SuperEntity superEntity) {
 
         if (superEntity instanceof Admin) {
-            Admin superEntity1 = (Admin) superEntity;
-            return new AdminDTO(superEntity1.getAdminId(), superEntity1.getName(), superEntity1.getContactNum());
+            Admin admin = (Admin) superEntity;
+            return new AdminDTO(admin.getAdminId(), admin.getName(), admin.getContactNum());
         } else if (superEntity instanceof BookShop) {
-            BookShop superEntity2 = (BookShop) superEntity;
-            return new BookShopDTO(superEntity2.getRegisterId(), superEntity2.getName(), superEntity2.getLocation(),
-                    superEntity2.getContactNo(), superEntity2.getNameOfManager(),
-                    superEntity2.getNICofManager(), superEntity2.getConectedBranchURL(), superEntity2.getBookshopType());
+            BookShop bookShop = (BookShop) superEntity;
+            return new BookShopDTO(bookShop.getRegisterId(), bookShop.getName(), bookShop.getLocation(),
+                    bookShop.getContactNo(), bookShop.getNameOfManager(),
+                    bookShop.getNICofManager(), bookShop.getConnectedBranchURL(), BookShopType.valueOf(bookShop.getBookshopType()));
         } else if (superEntity instanceof Category) {
-            Category superEntity3 = (Category) superEntity;
-            return new CategoryDTO(superEntity3.getId(), superEntity3.getType(), superEntity3.getSubject(), ExamType.valueOf(superEntity3.getExamType()));
+            Category category = (Category) superEntity;
+            return new CategoryDTO(category.getId(), category.getType(), category.getSubject(), ExamType.valueOf(category.getExamType()));
         } else if (superEntity instanceof Login) {
-            Login superEntity4 = (Login) superEntity;
-            return new LoginDTO(superEntity4.getUserName(), superEntity4.getPassword(), superEntity4.getType());
+            Login login = (Login) superEntity;
+            return new LoginDTO(login.getUserName(), login.getPassword(), login.getType());
         } else if (superEntity instanceof Student) {
-            Student superEntity5 = (Student) superEntity;
-            return new StudentDTO(superEntity5.getStudentId(), superEntity5.getName(), superEntity5.getContactNum(), superEntity5.getProfilePicURL());
+            Student student = (Student) superEntity;
+            return new StudentDTO(student.getStudentId(), student.getName(), student.getContactNum(), student.getProfilePicURL());
         } else if (superEntity instanceof StudyMaterial) {
-            StudyMaterial superEntity6 = (StudyMaterial) superEntity;
-            return new StudyMaterialDTO(superEntity6.getMaterialID(), superEntity6.getISBMNumber(), superEntity6.getNumberOFCopies(),
-                    StudyMaterialType.valueOf(superEntity6.getType()), superEntity6.getTitle(), superEntity6.getAuthor());
+            StudyMaterial studyMaterial = (StudyMaterial) superEntity;
+            return new StudyMaterialDTO(studyMaterial.getMaterialID(), studyMaterial.getIsbnNumber(), studyMaterial.getNumberOFCopies(),
+                    StudyMaterialType.valueOf(studyMaterial.getType()), studyMaterial.getTitle(), studyMaterial.getAuthor());
         } else if (superEntity instanceof TuitionProvider) {
-            TuitionProvider superEntity7 = (TuitionProvider) superEntity;
-            return new TuitionProviderDTO(superEntity7.getId(), superEntity7.getNIC(), superEntity7.getContactNumber(),
-                    superEntity7.getAddress(), superEntity7.getPayment());
+            TuitionProvider tuitionProvider = (TuitionProvider) superEntity;
+            return new TuitionProviderDTO(tuitionProvider.getId(), tuitionProvider.getNIC(), tuitionProvider.getContactNumber(),
+                    tuitionProvider.getAddress());
         }
         return null;
 
