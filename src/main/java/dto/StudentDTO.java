@@ -13,13 +13,13 @@ public class StudentDTO extends SuperDTO{
     
     private int studentId;
     private String name;
-    private int contactNum;
+    private String contactNum;
     private String profilePicURL;
 
     public StudentDTO() {
     }
 
-    public StudentDTO(int studentId, String name, int contactNum, String profilePicURL) {
+    public StudentDTO(int studentId, String name, String contactNum, String profilePicURL) {
         this.studentId = studentId;
         this.name = name;
         this.contactNum = contactNum;
@@ -34,8 +34,11 @@ public class StudentDTO extends SuperDTO{
         return name;
     }
 
-    public int getContactNum() {
-        return contactNum;
+    public StudentDTO(int studentId, String name, String contactNum, int creditcardNo, String profilePicURL) {
+        this.studentId = studentId;
+        this.name = name;
+        this.contactNum = contactNum;
+        this.profilePicURL = profilePicURL;
     }
 
     public String getProfilePicURL() {
@@ -50,19 +53,16 @@ public class StudentDTO extends SuperDTO{
         this.name = name;
     }
 
-    public void setContactNum(int contactNum) {
-        this.contactNum = contactNum;
+    public String getContactNum() {
+        return contactNum;
     }
 
     public void setProfilePicURL(String profilePicURL) {
         this.profilePicURL = profilePicURL;
     }
 
-    public StudentDTO(int studentId, String name, int contactNum, int creditcardNo, String profilePicURL) {
-        this.studentId = studentId;
-        this.name = name;
+    public void setContactNum(String contactNum) {
         this.contactNum = contactNum;
-        this.profilePicURL = profilePicURL;
     }
     
 }

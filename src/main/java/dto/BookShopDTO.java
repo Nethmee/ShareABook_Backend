@@ -18,18 +18,21 @@ public class BookShopDTO extends SuperDTO{
     private String contactNo;
     private String nameOfManager;
     private String NICofManager;
-    private String conectedBranchURL;
+    private String connectedBranchURL;
     private BookShopType bookShopType;
 
-    public BookShopDTO(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String conectedBranchURL, BookShopType bookShopType) {
+    public BookShopDTO(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String connectedBranchURL, BookShopType bookShopType) {
         this.registerId = registerId;
         this.name = name;
         this.location = location;
         this.contactNo = contactNo;
         this.nameOfManager = nameOfManager;
         this.NICofManager = NICofManager;
-        this.conectedBranchURL = conectedBranchURL;
+        this.connectedBranchURL = connectedBranchURL;
         this.bookShopType = bookShopType;
+    }
+
+    public BookShopDTO() {
     }
 
     public void setRegisterId(int registerId) {
@@ -56,8 +59,8 @@ public class BookShopDTO extends SuperDTO{
         this.NICofManager = NICofManager;
     }
 
-    public void setConectedBranchURL(String conectedBranchURL) {
-        this.conectedBranchURL = conectedBranchURL;
+    public String getConnectedBranchURL() {
+        return connectedBranchURL;
     }
 
     public void setBookShopType(BookShopType bookShopType) {
@@ -88,8 +91,8 @@ public class BookShopDTO extends SuperDTO{
         return NICofManager;
     }
 
-    public String getConectedBranchURL() {
-        return conectedBranchURL;
+    public void setConnectedBranchURL(String connectedBranchURL) {
+        this.connectedBranchURL = connectedBranchURL;
     }
 
     public BookShopType getBookShopType() {

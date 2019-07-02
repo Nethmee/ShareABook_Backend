@@ -22,7 +22,7 @@ public class StudyMaterial extends SuperEntity{
     @Column(name = "id")
     private int materialID;
     @Column(name = "isbn")
-    private  String ISBMNumber;
+    private String isbnNumber;
     @Column(name = "qty")
     private int numberOFCopies;
     @Column(name = "type")
@@ -50,9 +50,9 @@ public class StudyMaterial extends SuperEntity{
     @JoinColumn(name = "category_id")
     private Category category;
 
-    public StudyMaterial(int materialID, String ISBMNumber, int numberOFCopies, String type, String title, String author, float price) {
+    public StudyMaterial(int materialID, String isbnNumber, int numberOFCopies, String type, String title, String author, float price) {
         this.materialID = materialID;
-        this.ISBMNumber = ISBMNumber;
+        this.isbnNumber = isbnNumber;
         this.numberOFCopies = numberOFCopies;
         this.type = type;
         this.title = title;
@@ -60,8 +60,8 @@ public class StudyMaterial extends SuperEntity{
         this.price = price;
     }
 
-    public StudyMaterial(String ISBMNumber, int numberOFCopies, String type, String title, String author, float price) {
-        this.ISBMNumber = ISBMNumber;
+    public StudyMaterial(String isbnNumber, int numberOFCopies, String type, String title, String author, float price) {
+        this.isbnNumber = isbnNumber;
         this.numberOFCopies = numberOFCopies;
         this.type = type;
         this.title = title;
@@ -73,8 +73,8 @@ public class StudyMaterial extends SuperEntity{
         return materialID;
     }
 
-    public String getISBMNumber() {
-        return ISBMNumber;
+    public String getIsbnNumber() {
+        return isbnNumber;
     }
 
     public int getNumberOFCopies() {
@@ -97,8 +97,8 @@ public class StudyMaterial extends SuperEntity{
         this.materialID = materialID;
     }
 
-    public void setISBMNumber(String ISBMNumber) {
-        this.ISBMNumber = ISBMNumber;
+    public void setIsbnNumber(String isbnNumber) {
+        this.isbnNumber = isbnNumber;
     }
 
     public void setNumberOFCopies(int numberOFCopies) {
