@@ -1,11 +1,8 @@
 package service.custom.impl;
 
 import dto.LoginDTO;
-import dto.SuperDTO;
 import dto.UserDTO;
-import entity.Admin;
 import entity.Login;
-import entity.Student;
 import entity.SuperEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
