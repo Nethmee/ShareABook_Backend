@@ -25,12 +25,12 @@ public class Admin extends SuperEntity {
     private String name;
 
     @Column(name = "contact")
-    private int contactNum;
+    private String contactNum;
 
     @OneToMany(mappedBy = "admin")
     private List<BookShop> registeredBookShops;
 
-    public Admin(int adminId, String name, int contactNum) {
+    public Admin(int adminId, String name, String contactNum) {
         this.adminId = adminId;
         this.name = name;
         this.contactNum = contactNum;
@@ -44,8 +44,8 @@ public class Admin extends SuperEntity {
         this.name = name;
     }
 
-    public void setContactNum(int contactNum) {
-        this.contactNum = contactNum;
+    public String getContactNum() {
+        return contactNum;
     }
 
     public int getAdminId() {
@@ -56,8 +56,8 @@ public class Admin extends SuperEntity {
         return name;
     }
 
-    public int getContactNum() {
-        return contactNum;
+    public void setContactNum(String contactNum) {
+        this.contactNum = contactNum;
     }
 
 

@@ -1,6 +1,7 @@
 package tk.shareabook.backend.service.custom.impl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 import tk.shareabook.backend.dto.StudyMaterialDTO;
 import tk.shareabook.backend.entity.SearchHit;
 import tk.shareabook.backend.entity.StudyMaterial;
@@ -12,6 +13,7 @@ import tk.shareabook.backend.service.util.DtoConverter;
 import java.time.LocalDateTime;
 import java.util.List;
 
+@Service
 public class StudyMaterialSearchServiceImpl implements StudyMaterialSearchService {
 
     @Autowired

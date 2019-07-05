@@ -18,8 +18,6 @@ public class Category extends SuperEntity {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private int id;
-    @Column(name = "type")
-    private String type;
     @Column(name = "subject")
     private String Subject;
     @Column(name = "exam_type")
@@ -28,19 +26,14 @@ public class Category extends SuperEntity {
     @OneToMany(mappedBy = "category")
     List<StudyMaterial> studyMaterials;
 
-    public Category(int id, String type, String Subject, String examType) {
+    public Category(int id, String Subject, String examType) {
         this.id = id;
-        this.type = type;
         this.Subject = Subject;
         this.examType = examType;
     }
 
     public int getId() {
         return id;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public String getSubject() {
@@ -53,10 +46,6 @@ public class Category extends SuperEntity {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public void setSubject(String Subject) {

@@ -9,40 +9,44 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- *
  * @author DELL
  */
 @Entity
 @Table(name = "tuition_provider")
-public class TuitionProvider extends SuperEntity{
+public class TuitionProvider extends SuperEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id", nullable = false)
     private int id;
-    @Column(name = "nic")
-    private String NIC;
+    @Column(name = "city")
+    private String city;
     @Column(name = "contact")
     private String contactNumber;
-    @Column(name = "address")
-    private String address;
+    @Column(name = "name")
+    private String name;
+    @Column(name = "email")
+    private String email;
 
     @OneToMany(mappedBy = "primaryKey.tuitionProvider")
     private List<TuitionProviderUpload> tuitionProviderUploads;
 
-
-    public TuitionProvider(int id, String NIC, String contactNumber, String address) {
-        this.id = id;
-        this.NIC = NIC;
+    public TuitionProvider(String city, String contactNumber, String name, String email) {
+        this.city = city;
         this.contactNumber = contactNumber;
-        this.address = address;
-//        this.payment = payment;
+        this.name = name;
+        this.email = email;
     }
 
-    public TuitionProvider(String NIC, String contactNumber, String Address) {
-        this.NIC = NIC;
+    public TuitionProvider(int id, String city, String contactNumber, String name, String email) {
+        this.id = id;
+        this.city = city;
         this.contactNumber = contactNumber;
-        this.address = Address;
-//        this.payment = payment;
+        this.name = name;
+        this.email = email;
+    }
+
+
+    public TuitionProvider() {
     }
 
     public int getId() {
@@ -53,38 +57,29 @@ public class TuitionProvider extends SuperEntity{
         this.id = id;
     }
 
-    public void setNIC(String NIC) {
-        this.NIC = NIC;
+    public String getCity() {
+        return city;
     }
 
     public void setContactNumber(String contactNumber) {
         this.contactNumber = contactNumber;
     }
 
-    public void setAddress(String Address) {
-        this.address = Address;
+    public void setCity(String city) {
+        this.city = city;
     }
 
-//    public void setPayment(String payment) {
-//        this.payment = payment;
-//    }
-
-    public String getNIC() {
-        return NIC;
+    public String getName() {
+        return name;
     }
 
     public String getContactNumber() {
         return contactNumber;
     }
 
-    public String getAddress() {
-        return address;
+    public void setName(String Address) {
+        this.name = Address;
     }
-
-//    public String getPayment() {
-//        return payment;
-//    }
-
 
     public List<TuitionProviderUpload> getTuitionProviderUploads() {
         return tuitionProviderUploads;

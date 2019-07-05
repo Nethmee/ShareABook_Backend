@@ -10,7 +10,7 @@ import java.time.LocalDate;
 @Table(name = "tuition_provider_upload")
 @AssociationOverrides({
         @AssociationOverride(name = "primaryKey.tuitionProvider",
-                joinColumns = @JoinColumn(name = "student_id")),
+                joinColumns = @JoinColumn(name = "tuition_provider_id")),
         @AssociationOverride(name = "primaryKey.studyMaterial",
                 joinColumns = @JoinColumn(name = "study_material_id"))
 })

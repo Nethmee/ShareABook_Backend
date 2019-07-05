@@ -27,10 +27,14 @@ public class Login extends SuperEntity {
     @Column(name = "user_id")
     private int id;
 
-    public Login(String userName, String password, String type) {
+    public Login() {
+    }
+
+    public Login(String userName, String password, String type, int id) {
         this.userName = userName;
         this.password = password;
         this.type = type;
+        this.id = id;
     }
 
 
@@ -56,13 +60,6 @@ public class Login extends SuperEntity {
 
     public String getType() {
         return type;
-    }
-
-    public Login(String userName, String password, String type, int id) {
-        this.userName = userName;
-        this.password = password;
-        this.type = type;
-        this.id = id;
     }
 
     public int getId() {

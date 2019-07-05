@@ -9,13 +9,12 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- *
  * @author DELL
  */
 
 @Table(name = "bookshop")
 @Entity
-public class BookShop extends SuperEntity{
+public class BookShop extends SuperEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,6 +30,10 @@ public class BookShop extends SuperEntity{
     private String nameOfManager;
     @Column(name = "manager_nic")
     private String NICofManager;
+    @Column(name = "business_registration")
+    private String businessRegistration;
+    @Column(name = "email")
+    private String email;
     @Column(name = "webpage")
     private String connectedBranchURL;
     @Column(name = "type")
@@ -43,15 +46,17 @@ public class BookShop extends SuperEntity{
     @JoinColumn(name = "registered_by")
     private Admin admin;
 
-    public BookShop(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String connectedBranchURL, String bookshopType) {
-        this.registerId = registerId;
+    public BookShop() {
+    }
+
+    public BookShop(String name, String location, String contactNo, String nameOfManager, String NICofManager, String businessRegistration, String email) {
         this.name = name;
         this.location = location;
         this.contactNo = contactNo;
         this.nameOfManager = nameOfManager;
         this.NICofManager = NICofManager;
-        this.connectedBranchURL = connectedBranchURL;
-        this.bookshopType = bookshopType;
+        this.businessRegistration = businessRegistration;
+        this.email = email;
     }
 
     public void setRegisterId(int registerId) {
@@ -116,5 +121,37 @@ public class BookShop extends SuperEntity{
 
     public String getBookshopType() {
         return bookshopType;
+    }
+
+    public String getBusinessRegistration() {
+        return businessRegistration;
+    }
+
+    public void setBusinessRegistration(String businessRegistration) {
+        this.businessRegistration = businessRegistration;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public List<BookShopUpload> getBookShopUploads() {
+        return bookShopUploads;
+    }
+
+    public void setBookShopUploads(List<BookShopUpload> bookShopUploads) {
+        this.bookShopUploads = bookShopUploads;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 }

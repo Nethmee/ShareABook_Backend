@@ -8,28 +8,60 @@ package tk.shareabook.backend.dto;
 import tk.shareabook.backend.service.types.BookShopType;
 
 /**
- *
  * @author DELL
  */
-public class BookShopDTO extends SuperDTO{
+public class BookShopDTO extends SuperDTO {
     private int registerId;
     private String name;
-    private String location;
+    private String businessRegNo;
+    private String email;
     private String contactNo;
     private String nameOfManager;
     private String NICofManager;
+    private String city;
+    private String username;
+    private String password;
+
     private String connectedBranchURL;
     private BookShopType bookShopType;
 
-    public BookShopDTO(int registerId, String name, String location, String contactNo, String nameOfManager, String NICofManager, String connectedBranchURL, BookShopType bookShopType) {
+    public BookShopDTO(int registerId, String name, String businessRegNo, String email, String contactNo, String nameOfManager, String NICofManager, String city, String username, String password, String connectedBranchURL, BookShopType bookShopType) {
         this.registerId = registerId;
         this.name = name;
-        this.location = location;
+        this.businessRegNo = businessRegNo;
+        this.email = email;
         this.contactNo = contactNo;
         this.nameOfManager = nameOfManager;
         this.NICofManager = NICofManager;
+        this.city = city;
+        this.username = username;
+        this.password = password;
         this.connectedBranchURL = connectedBranchURL;
         this.bookShopType = bookShopType;
+    }
+
+    public BookShopDTO(int registerId, String name, String businessRegNo, String email, String contactNo, String nameOfManager, String NICofManager, String city, String username, String password) {
+        this.registerId = registerId;
+        this.name = name;
+        this.businessRegNo = businessRegNo;
+        this.email = email;
+        this.contactNo = contactNo;
+        this.nameOfManager = nameOfManager;
+        this.NICofManager = NICofManager;
+        this.city = city;
+        this.username = username;
+        this.password = password;
+    }
+
+    public BookShopDTO(int registerId, String name, String businessRegNo, String email, String contactNo, String nameOfManager, String NICofManager, String city) {
+        this.registerId = registerId;
+        this.name = name;
+        this.businessRegNo = businessRegNo;
+        this.email = email;
+        this.contactNo = contactNo;
+        this.nameOfManager = nameOfManager;
+        this.NICofManager = NICofManager;
+        this.city = city;
     }
 
     public BookShopDTO() {
@@ -43,8 +75,8 @@ public class BookShopDTO extends SuperDTO{
         this.name = name;
     }
 
-    public void setLocation(String location) {
-        this.location = location;
+    public String getCity() {
+        return city;
     }
 
     public void setContactNo(String contactNo) {
@@ -75,8 +107,8 @@ public class BookShopDTO extends SuperDTO{
         return name;
     }
 
-    public String getLocation() {
-        return location;
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public String getContactNo() {
@@ -98,5 +130,36 @@ public class BookShopDTO extends SuperDTO{
     public BookShopType getBookShopType() {
         return bookShopType;
     }
-    
+
+    public String getBusinessRegNo() {
+        return businessRegNo;
+    }
+
+    public void setBusinessRegNo(String businessRegNo) {
+        this.businessRegNo = businessRegNo;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
 }

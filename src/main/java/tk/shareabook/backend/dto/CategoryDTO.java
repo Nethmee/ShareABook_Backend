@@ -13,23 +13,17 @@ import tk.shareabook.backend.service.types.ExamType;
  */
 public class CategoryDTO extends SuperDTO{
         private int id;
-        private String type;
         private String Subject;
         private ExamType examType;
 
-    public CategoryDTO(int id, String type, String Subject, ExamType examType) {
+    public CategoryDTO(int id, String Subject, ExamType examType) {
         this.id = id;
-        this.type = type;
         this.Subject = Subject;
         this.examType = examType;
     }
 
     public int getId() {
         return id;
-    }
-
-    public String getType() {
-        return type;
     }
 
     public String getSubject() {
@@ -42,10 +36,6 @@ public class CategoryDTO extends SuperDTO{
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public void setType(String type) {
-        this.type = type;
     }
 
     public void setSubject(String Subject) {

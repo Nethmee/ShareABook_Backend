@@ -5,7 +5,9 @@ import org.springframework.stereotype.Service;
 import tk.shareabook.backend.dto.LoginDTO;
 import tk.shareabook.backend.dto.UserDTO;
 import tk.shareabook.backend.entity.Login;
+import tk.shareabook.backend.entity.Student;
 import tk.shareabook.backend.entity.SuperEntity;
+import tk.shareabook.backend.entity.TuitionProvider;
 import tk.shareabook.backend.repository.*;
 import tk.shareabook.backend.service.custom.UserService;
 import tk.shareabook.backend.service.types.UserType;
@@ -43,19 +45,19 @@ public class UserServiceImpl implements UserService {
     @Override
     public UserDTO login(LoginDTO loginDTO) {
         Login login = loginRepository.findLoginByUserNameAndPasswordEquals(loginDTO.getUserName(), loginDTO.getPassword());
-        if(null!=login){
+        if (null != login) {
             UserDTO userDTO = null;
             SuperEntity superEntity = null;
-            switch (UserType.valueOf(login.getType())){
+            switch (UserType.valueOf(login.getType())) {
                 case ADMIN: {
                     superEntity = adminRepository.findById(login.getId()).get();
                     break;
                 }
-                case STUDENT:{
+                case STUDENT: {
                     superEntity = studentRepository.findById(login.getId()).get();
                     break;
                 }
-                case BOOKSHOP_OWNER:{
+                case BOOKSHOP_OWNER: {
                     superEntity = bookShopRepository.findById(login.getId()).get();
                 }
             }
@@ -63,5 +65,30 @@ public class UserServiceImpl implements UserService {
             return userDTO;
         }
         return null;
+    }
+
+    @Override
+    public boolean registerUser(UserDTO userDTO) {
+        try {
+            String type = userDTO.getType();
+            if (type.equalsIgnoreCase("Educator")) {
+                userDTO.setUserType(UserType.TUITION_PROVIDER);
+                TuitionProvider tuitionProvider = (TuitionProvider) entityConverter.convertToEntity(userDTO);
+                TuitionProvider save = tuitionProviderRepository.save(tuitionProvider);
+                userDTO.setId(save.getId());
+            } else if (type.equalsIgnoreCase("Student")) {
+                userDTO.setUserType(UserType.STUDENT);
+                Student student = (Student) entityConverter.convertToEntity(userDTO);
+                Student save = studentRepository.save(student);
+                userDTO.setId(save.getStudentId());
+            }
+
+            loginRepository.save(new Login(userDTO.getUserName(), userDTO.getPassword(), userDTO.getUserType().toString(), userDTO.getId()));
+
+            return true;
+        } catch (RuntimeException e) {
+            System.out.println(e);
+            return false;
+        }
     }
 }

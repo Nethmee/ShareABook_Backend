@@ -9,12 +9,11 @@ import javax.persistence.*;
 import java.util.List;
 
 /**
- *
  * @author DELL
  */
 @Entity
 @Table(name = "student")
-public class Student extends SuperEntity{
+public class Student extends SuperEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -24,8 +23,10 @@ public class Student extends SuperEntity{
     private String name;
     @Column(name = "contact")
     private String contactNum;
-    @Column(name = "profile_pic")
-    private String profilePicURL;
+    @Column(name = "email")
+    private String email;
+    @Column(name = "city")
+    private String city;
 
     @OneToMany(mappedBy = "primaryKey.student")
     List<StudentUpload> studentUploads;
@@ -37,11 +38,20 @@ public class Student extends SuperEntity{
     public Student() {
     }
 
-    public Student(int studentId, String name, String contactNum, String profilePicURL) {
+    public Student(int studentId, String city, String contactNum, String name, String email) {
         this.studentId = studentId;
         this.name = name;
         this.contactNum = contactNum;
-        this.profilePicURL = profilePicURL;
+        this.email = email;
+        this.city = city;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
     }
 
     public int getStudentId() {
@@ -56,8 +66,8 @@ public class Student extends SuperEntity{
         return contactNum;
     }
 
-    public String getProfilePicURL() {
-        return profilePicURL;
+    public String getEmail() {
+        return email;
     }
 
     public void setStudentId(int studentId) {
@@ -72,8 +82,8 @@ public class Student extends SuperEntity{
         this.contactNum = contactNum;
     }
 
-    public void setProfilePicURL(String profilePicURL) {
-        this.profilePicURL = profilePicURL;
+    public void setEmail(String email) {
+        this.email = email;
     }
 
     public List<StudentUpload> getStudentUploads() {
